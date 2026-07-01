@@ -59,16 +59,11 @@ This is the current scoped semantic G1 spine.  It is not:
 - native theorem reproof in external domains;
 - free external-domain transport.
 
-Older files such as:
-
-```text
-FiniteIIDWorkloadNoAlternativeRepresentationG1TheoremBodyClosedCapstone
-FiniteIIDWorkloadTheoryCoreG1ClosedCompletionPublicWrapper
-```
-
-are status/readout capstones and public wrappers.  They are useful as audit
-infrastructure, but they are not the best citation for the current semantic
-core.  Prefer the two Lean anchors above when citing G1 proof substance.
+The full research archive contains older status/readout capstones and public
+wrappers.  They are useful as audit infrastructure, but they are not included
+in this curated core repository and are not the best citation for the current
+semantic core.  Prefer the two Lean anchors above when citing G1 proof
+substance.
 
 ## Japanese
 
@@ -124,13 +119,7 @@ separation surface に入り、生成された二成分 trace が整合する。
 - 外部ドメインの native theorem reproof;
 - 根拠なし外部ドメイン転用。
 
-次のような古いファイルは、
-
-```text
-FiniteIIDWorkloadNoAlternativeRepresentationG1TheoremBodyClosedCapstone
-FiniteIIDWorkloadTheoryCoreG1ClosedCompletionPublicWrapper
-```
-
-status/readout capstone または public wrapper である。監査基盤としては有用
-だが、現在の semantic core を引用するなら、上の二つの Lean アンカーを優先
-する。
+完全な研究 archive には、古い status/readout capstone や public wrapper が
+残っている。それらは監査基盤としては有用だが、この curated core repository
+には含めず、現在の semantic core の主引用対象でもない。現在の G1 proof
+substance を引用するなら、上の二つの Lean アンカーを優先する。
