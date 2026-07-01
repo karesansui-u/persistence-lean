@@ -11,7 +11,9 @@ does not reduce domains to one native law.  It is a meta-theory of:
 
 1. common coordinates for persistence/collapse claims;
 2. boundary readouts for persistence, collapse, stopping, and recovery;
-3. conditional/scoped invariance under a same-calculation criterion.
+3. conditional/scoped invariance under a same-calculation criterion;
+4. conditional boundary laws and proxy guards when explicit certificates are
+   supplied.
 
 The main numeric uniqueness result is conditional.  Once the maintained
 condition `G`, viable region `V_G`, measure `m`, and before/after comparison
@@ -28,6 +30,24 @@ select the correct `G`, `V_G`, `m`, `M`, or empirical proxy for a real domain.
 | Finite theorem anchors | `Persistence/FiniteCSPFirstMomentCollapseBound.lean`, `Persistence/BernoulliCSPPathChernoff.lean` | A finite CSP first-moment bound and a finite Bernoulli path Chernoff upper bound. | Universal CSP threshold theory, full LDP, effective-bandwidth theorem, Shannon theorem, or tight lower/converse theorem. |
 
 These three groups are the material a first citation should start from.
+
+## Core-Plus: Selected Second Layer
+
+`Persistence.CorePlus` is not the minimal root core, but it is part of this
+curated repository.  It keeps proof-bearing modules that add useful thickness
+to the coordinates/boundary meta-theory without mixing them into the smallest
+public spine.
+
+| Group | Lead files | Safe reading |
+| --- | --- | --- |
+| Coarse-graining / processing | `Persistence/DataProcessingBridge.lean` | Readout-level monotonicity under explicit saturation-defect hypotheses; not native information-theoretic data-processing. |
+| Drift / stability guards | `Persistence/FosterLyapunovSignBridge.lean`, `Persistence/MartingaleDrift.lean` | Sign conventions and finite expectation/telescoping guards; not full Foster-Lyapunov recurrence or queueing theory. |
+| Recovery corollary | `Persistence/AdditiveRecoveryNecessity.lean` | Additive recovery inside the log-ratio coordinate; not a universal recovery model. |
+| Finite BEC recovery | `Persistence/LinearCodeBECRecovery.lean` | Deterministic finite erasure-recovery linear algebra; not BEC capacity, Shannon achievability, or a decoder. |
+| Approximate G1 stability | `Persistence/StructuralPersistenceG1ApproxProxyStability.lean` | Bounded-horizon approximate skeleton-surface stability under explicit score, drift, margin, and horizon certificates; not real-domain proxy validity. |
+
+Names are not decisive.  Some `*Bridge` files are proof-bearing and kept here;
+dictionary-only bridges remain outside the curated repository.
 
 ## Diagnostics Outside Core
 

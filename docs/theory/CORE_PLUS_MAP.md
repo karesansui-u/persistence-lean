@@ -6,6 +6,11 @@
 are useful for reading Structural Persistence Theory as a wider
 coordinates/boundary meta-theory, but that are not the root core.
 
+This layer exists because not every file named `*Bridge` is a dictionary
+bridge.  The criterion is proof load: files with real theorem bodies and clear
+native-domain non-claims can live here; files that only rename native facts
+stay in the archive.
+
 ## Imports
 
 ```lean
