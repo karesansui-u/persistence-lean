@@ -1,4 +1,4 @@
-name = "persistence-lean-new"
+name = "persistence-lean"
 version = "0.1.0"
 keywords = ["lean", "formal-verification", "structural-persistence"]
 description = "Curated Lean core for Structural Persistence Theory"

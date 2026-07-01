@@ -95,8 +95,10 @@ substance, not file names: proof-bearing files such as `DataProcessingBridge`
 and `FosterLyapunovSignBridge` are kept in `CorePlus`; dictionary-only bridges
 remain in the archive.
 
-The old repository can remain as the historical archive.  This repository is
-for the small core that should be read, maintained, and extended first.
+The private `persistence-lean-lab` repository remains the place for draft
+proofs, exploratory diagnostics, and historical route material.  This public
+repository is for the small core that should be read, maintained, and extended
+first.
 
 ## Core-Plus
 
@@ -123,5 +125,6 @@ lake build Persistence.CorePlus
 
 - `docs/theory/SHORT_EVIDENCE_MAP.md`
 - `docs/theory/THEORY_CORE_CLOSED_SCOPE.md`
+- `docs/theory/CLAIM_DEPENDENCY_MAP.md`
 - `docs/theory/G1_SCOPED_SEMANTIC_SPINE.md`
 - `docs/theory/CORE_PLUS_MAP.md`
