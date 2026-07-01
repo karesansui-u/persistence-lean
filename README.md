@@ -130,6 +130,7 @@ lake build Persistence.CorePlus
 
 ## Reading
 
+- `docs/theory/FAQ.md`
 - `docs/theory/SHORT_EVIDENCE_MAP.md`
 - `docs/theory/THEORY_CORE_CLOSED_SCOPE.md`
 - `docs/theory/CLAIM_DEPENDENCY_MAP.md`
