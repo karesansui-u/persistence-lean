@@ -1,0 +1,50 @@
+/.lake
+**/.DS_Store
+
+# Lean build artifacts
+*.olean
+*.ilean
+*.trace
+
+# Local agent/session state
+.agent/
+.codex/
+
+# Node/package build dependencies
+node_modules/
+**/node_modules/
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# LaTeX/PDF intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Generated paper/render outputs
+preprints/ja/pdf/
+outputs/manual-*/
+outputs/qsa_external_rerun_send_package/
+outputs/qsa_external_rerun_send_package.zip
+outputs/sre_h1_external_user_reproduction_package_ja/
+dist/qsa_external_rerun_bundle/
+dist/sre_h1_external_rerun_bundle/
+dist/sre_h1_uci_early_rerun_bundle/
+dist/sre_h1_uci_early_rerun_bundle.zip
+dist/sre_h1_uci_early_raw_to_fit_full_rerun_bundle/
+dist/sre_h1_uci_early_raw_to_fit_full_rerun_bundle.zip
+dist/sre_h1_uci_early_external_request_files/
+dist/sre_h1_uci_early_external_request_files.zip
+data/*_RETURN.zip
+data/*_RETURN_extract/
+data/return_raw_to_fit_v*/
+
+# Large raw experiment traces; keep summaries/instances in git.
+data/*_trials.csv
