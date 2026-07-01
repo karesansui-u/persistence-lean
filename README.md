@@ -1,4 +1,4 @@
-# persistence-lean-new
+# persistence-lean
 
 Curated Lean core for Structural Persistence Theory.
 
@@ -25,6 +25,13 @@ A second import surface, `Persistence.CorePlus`, adds selected conditional
 boundary laws and proxy/approximation guards.  These are proof-bearing modules,
 but they are deliberately kept out of the minimal root import so the smallest
 closed claim stays easy to audit.
+
+The scoped G1 core is not a finite-IID theorem: it is an abstract
+visible/current-view observational-process theorem.  Finite CSP and
+Bernoulli/Chernoff files are anchors, not the scope of G1.  Approximate/proxy
+stability lives in `Persistence.CorePlus` under explicit bounded-horizon score,
+error-drift, margin, and horizon certificates; real-domain proxy validity
+remains a separate obligation.
 
 The theory does **not** infer the right `G`, `V_G`, `m`, `M`, or empirical
 proxy from a domain automatically.  Domain measurements, proxy validity, and

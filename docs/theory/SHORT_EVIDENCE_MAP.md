@@ -31,6 +31,10 @@ select the correct `G`, `V_G`, `m`, `M`, or empirical proxy for a real domain.
 
 These three groups are the material a first citation should start from.
 
+The G1 semantic spine is not a finite-IID theorem.  It is an abstract
+visible/current-view observational-process theorem.  Finite CSP and
+Bernoulli/Chernoff are finite anchors, not the scope of G1.
+
 ## Core-Plus: Selected Second Layer
 
 `Persistence.CorePlus` is not the minimal root core, but it is part of this
@@ -48,6 +52,11 @@ public spine.
 
 Names are not decisive.  Some `*Bridge` files are proof-bearing and kept here;
 dictionary-only bridges remain outside the curated repository.
+
+In particular, approximate/proxy stability is a theorem-side conditional guard:
+explicit bounded-horizon score, error-drift, margin, and horizon certificates
+can license approximate skeleton-surface stability.  It does not discover or
+validate real-domain proxies automatically.
 
 ## Diagnostics Outside Core
 
