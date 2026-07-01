@@ -21,6 +21,12 @@ are fixed, the loss coordinate is not arbitrary: every continuous additive
 ratio-loss has the form `-k log r`, unique up to unit scale.  This does not
 select the correct `G`, `V_G`, `m`, `M`, or empirical proxy for a real domain.
 
+Notation: the structural interface uses `F/K/V_K` for maintained target,
+realizing structure, and the viable region for that structure.  The log-ratio
+kernel often abstracts this fixed-problem role as `G/V_G/m`.  `V_K` and `V_G`
+are viable regions, not the boundary itself; boundary readouts are taken at or
+relative to their edges.
+
 ## Load-Bearing Core
 
 | Group | Files | What is real | What not to claim |

@@ -11,6 +11,13 @@ continuous additive ratio-loss coordinate is forced up to unit scale.  Under
 the adopted current-view same-calculation scope, the G1 route gives a scoped
 skeleton/boundary surface.
 
+Notation guard: `F/K/V_K` is the structural-interface notation for maintained
+target, realizing structure, and the viable region for that structure.
+`G/V_G/m` is the log-ratio theorem's abstract fixed-problem notation:
+maintained condition, viable region, and measure.  `V_K` or `V_G` is not the
+boundary itself; it is the viable region whose edge licenses the boundary
+readout.
+
 ## Import Surfaces
 
 | Surface | Lean import | Role |

@@ -21,6 +21,13 @@ The current core is:
    scope, G1 returns competing observation-only calculations to the same
    skeleton surface.
 
+Notation note: the structural interface writes `F/K/V_K` for maintained target,
+realizing structure, and the viable region for that structure.  The log-ratio
+theorem often writes the same fixed-problem role abstractly as `G/V_G/m`:
+maintained condition, viable region, and measure.  `V_K` or `V_G` is the viable
+region, not the boundary itself; the boundary readout is taken at or relative to
+that region's edge.
+
 A second import surface, `Persistence.CorePlus`, adds selected conditional
 boundary laws and proxy/approximation guards.  These are proof-bearing modules,
 but they are deliberately kept out of the minimal root import so the smallest
