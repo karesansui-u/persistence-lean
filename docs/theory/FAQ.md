@@ -29,6 +29,21 @@ maintained target
 Domain measurement, proxy validity, prediction, causality, and transfer remain
 separate obligations.
 
+## Why is this meaningful if it is not a predictor?
+
+The value is not prediction by itself.  The value is claim audit: making
+explicit what must be fixed before a persistence/collapse claim is well formed.
+
+Statements such as "this system is stable", "this organization is resilient",
+or "this model is robust" often mix the maintained target, realizing structure,
+viable region, burden, support, boundary readout, and proxy validity.
+Structural Persistence Theory forces those roles apart.
+
+In that sense it is closer to a modeling grammar than to a predictor.  Its
+practical value depends on whether concrete domains can supply natural choices
+of maintained target, structure, viable region, burden, support, boundary
+readout, and proxy certificates.
+
 ## Is the log-ratio theorem new mathematics?
 
 No.  The log-ratio theorem is a Lean formalization of a classical
