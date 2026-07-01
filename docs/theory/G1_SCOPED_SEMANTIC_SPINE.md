@@ -23,6 +23,14 @@ currentViewInjective_globalResponseEquiv_forces_scopedAdditiveMLSeparation
 g1_scopedInevitabilitySkeleton_of_currentViewSameCalculation
 ```
 
+Scope is not a retreat from the theorem; it is the object of the theorem.
+As a channel model in information theory fixes what counts as the communication
+problem, or a state/input model in control theory fixes what counts as the
+controlled system, the visible/current-view same-calculation criterion fixes
+when two persistence/collapse calculations are being compared as the same
+calculation.  Whether that scope is natural for a concrete domain remains a
+separate adapter/proxy-certificate obligation.
+
 The first theorem is the visible-state route.  Current-view injectivity on the
 source and target supplies extensionality; global current-view response-image
 equivalence folds to local current-view equivalence; the target-side scoped
@@ -84,6 +92,13 @@ G1 は、構造持続理論における scoped 必然性プログラムである
 currentViewInjective_globalResponseEquiv_forces_scopedAdditiveMLSeparation
 g1_scopedInevitabilitySkeleton_of_currentViewSameCalculation
 ```
+
+scope は定理からの後退ではなく、定理の対象である。情報理論で channel
+model が通信問題を固定し、制御理論で state/input model が制御対象を
+固定するのと同じように、visible/current-view same-calculation criterion
+は、二つの持続・崩壊計算を「同じ計算」として比較してよい条件を固定する。
+その scope が具体ドメインにとって自然かどうかは、別途 adapter /
+proxy-certificate 側の義務である。
 
 一つ目は visible-state route である。source/target の current-view
 injectivity が extensionality を供給し、global current-view response-image
