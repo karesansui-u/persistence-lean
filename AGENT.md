@@ -9,6 +9,9 @@ Keep the public claim narrow:
 - It is not a unification theory and does not provide a universal persistence
   score.  Numeric loss is forced only after `G`, `V_G`, `m`, and the comparison
   are fixed.
+- Write the project name as `Structural Persistence Theory` in English and
+  `構造持続理論` in Japanese.  Do not use the three-letter abbreviation from
+  the English initials in public docs, comments, or new identifiers.
 - The load-bearing Lean core is:
   1. `LogUniqueness` / `RepresentationTheorem`;
   2. `StructuralPersistenceG1SemanticSpine`;

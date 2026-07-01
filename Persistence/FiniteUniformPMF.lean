@@ -28,8 +28,8 @@ open Persistence.FiniteUniformRatio
 
 noncomputable section
 
-/-- Mathlib's uniform PMF on a finite nonempty type, named locally for the SPT
-finite-ratio bridge. -/
+/-- Mathlib's uniform PMF on a finite nonempty type, named locally for the
+Structural Persistence Theory finite-ratio bridge. -/
 def uniformPMF (α : Type*) [Fintype α] [Nonempty α] : PMF α :=
   PMF.uniformOfFintype α
 
