@@ -38,10 +38,25 @@ This copy intentionally excludes:
 The old repository can remain as the historical archive.  This repository is
 for the small core that should be read, maintained, and extended first.
 
+## Core-Plus
+
+The minimal root import stays small on purpose.  A second layer is available
+for selected proof-bearing modules that are useful for reading the wider
+coordinates/boundary meta-theory:
+
+```lean
+import Persistence.CorePlus
+```
+
+See `docs/theory/CORE_PLUS_MAP.md`.  Core-plus is not the root core; it is a
+curated surface for conditional boundary laws, finite examples, and
+approximation/proxy guards.
+
 ## Build
 
 ```bash
 lake build Persistence
+lake build Persistence.CorePlus
 ```
 
 ## Reading
@@ -49,3 +64,4 @@ lake build Persistence
 - `docs/theory/SHORT_EVIDENCE_MAP.md`
 - `docs/theory/THEORY_CORE_CLOSED_SCOPE.md`
 - `docs/theory/G1_SCOPED_SEMANTIC_SPINE.md`
+- `docs/theory/CORE_PLUS_MAP.md`

@@ -10,6 +10,9 @@ Keep the public claim narrow:
   1. `LogUniqueness` / `RepresentationTheorem`;
   2. `StructuralPersistenceG1SemanticSpine`;
   3. `FiniteCSPFirstMomentCollapseBound` and `BernoulliCSPPathChernoff`.
+- `Persistence.CorePlus` is a second-layer selected theorem surface.  Do not
+  move its imports into `Persistence.lean` unless the user explicitly decides
+  to expand the minimal root core.
 - Do not reintroduce generated ledgers, route wrappers, operational proxy
   experiments, broad domain bridges, or "unification theory" framing into this
   curated repository.
