@@ -11,9 +11,12 @@ What remains outside the core?
 
 ## Current Core
 
-Structural Persistence Theory is a meta-theory for making
-persistence/collapse/stop/recovery claims computable and auditable.  Its
-current public core is small:
+Structural Persistence Theory is not a unification theory and does not provide
+a universal persistence score.  It is a meta-theory for making
+persistence/collapse/stop/recovery claims explicit in common coordinates,
+boundary readouts, and scoped same-calculation invariants.
+
+The current public core is small:
 
 | Core item | Status | Safe reading |
 | --- | --- | --- |
@@ -22,6 +25,25 @@ current public core is small:
 | Finite theorem anchors | Lean-checked finite theorems | `FiniteCSPFirstMomentCollapseBound` gives a pre-fixed first-moment loss bound, and `BernoulliCSPPathChernoff` gives a finite Bernoulli path Chernoff upper bound. |
 
 These are the load-bearing pieces a first citation should start from.
+
+## What Becomes Unique
+
+The core gives a number only after the problem has been fixed.  If the
+maintained condition `G`, viable region `V_G`, measure `m`, and before/after
+comparison are supplied, then the ratio
+
+```text
+r = m(V_after) / m(V_before)
+```
+
+has a forced continuous additive loss coordinate:
+
+```text
+L = -k log r
+```
+
+up to unit scale.  With nat units, `k = 1`.  The Lean core does not infer the
+correct `G`, `V_G`, `m`, `M`, or proxy for a real domain.
 
 ## Diagnostics Outside Core
 
@@ -86,6 +108,8 @@ guards, not mathematical closures.
 
 The current core does not claim:
 
+- a universal persistence score;
+- a unification theory reducing domains to one native law;
 - native capacity, native exponent, or measure-theoretic LDP theorems;
 - Shannon-style converse or achievability theorems;
 - automatic adapter discovery for arbitrary hidden-state systems;
@@ -102,12 +126,12 @@ them.
 ## Safe Citation
 
 > Structural Persistence Theory currently has a small Lean-checked core:
-> log-ratio uniqueness, a scoped current-view G1 semantic spine, and finite
-> theorem anchors consisting of finite CSP and Bernoulli-Chernoff bounds.
-> QSA/SRE-H1 and UCI/DataSF reports are
-> diagnostics outside the core, not additional core support.  G2/G3/G4 ledgers
-> organize downstream certificate obligations; they are not native
-> Shannon/LDP/capacity theorems.
+> log-ratio uniqueness after `G/V_G/m` are fixed, a scoped current-view G1
+> semantic spine, and finite theorem anchors consisting of finite CSP and
+> Bernoulli-Chernoff bounds.  It does not provide a universal persistence
+> score.  QSA/SRE-H1 and UCI/DataSF reports are diagnostics outside the core,
+> not additional core support.  G2/G3/G4 ledgers organize downstream
+> certificate obligations; they are not native Shannon/LDP/capacity theorems.
 
 ## Reviewer Checklist
 

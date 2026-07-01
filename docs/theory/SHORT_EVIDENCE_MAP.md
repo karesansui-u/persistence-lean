@@ -4,6 +4,21 @@ This is the fastest map for a first-time reviewer.  It intentionally keeps the
 load-bearing core small.  Benchmark, operational, and proxy reports are history
 and diagnostics; they are not part of the theory core.
 
+## Essence
+
+Structural Persistence Theory does not give a universal persistence score and
+does not reduce domains to one native law.  It is a meta-theory of:
+
+1. common coordinates for persistence/collapse claims;
+2. boundary readouts for persistence, collapse, stopping, and recovery;
+3. conditional/scoped invariance under a same-calculation criterion.
+
+The main numeric uniqueness result is conditional.  Once the maintained
+condition `G`, viable region `V_G`, measure `m`, and before/after comparison
+are fixed, the loss coordinate is not arbitrary: every continuous additive
+ratio-loss has the form `-k log r`, unique up to unit scale.  This does not
+select the correct `G`, `V_G`, `m`, `M`, or empirical proxy for a real domain.
+
 ## Load-Bearing Core
 
 | Group | Files | What is real | What not to claim |
@@ -60,16 +75,15 @@ clear.
 ## One Safe Citation
 
 > Structural Persistence Theory is a Lean-formalized meta-theory for rigorous
-> persistence/collapse boundary-interface claims.  Its current load-bearing
-> pieces are three:
-> the log-ratio uniqueness kernel, the scoped G1 current-view semantic spine,
-> and the finite theorem anchors consisting of the finite CSP first-moment
-> bound and Bernoulli/Chernoff upper bound.  Benchmark and operational reports
-> are tracked separately as diagnostics: useful audit history, but not proof of
+> persistence/collapse boundary-interface claims.  It does not provide a
+> universal persistence score.  After `G`, `V_G`, `m`, and the comparison are
+> fixed, the log-ratio loss coordinate is forced up to unit scale; under the
+> visible/current-view same-calculation scope, G1 gives a scoped invariant
+> skeleton/boundary surface.  Its current load-bearing pieces are the
+> log-ratio uniqueness kernel, the scoped G1 semantic spine, and finite theorem
+> anchors.  Benchmark and operational reports are diagnostics, not proof of
 > native resource/capacity `M`, empirical generalization, or a theorem-level
-> connection to the Lean core.  Native capacity/LDP/Shannon theorems, automatic
-> adapter discovery, free cross-domain transfer, and real-domain `M`
-> measurement remain outside the current core.
+> connection to the Lean core.
 
 ## Reader Route
 

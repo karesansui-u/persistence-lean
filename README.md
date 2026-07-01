@@ -2,16 +2,36 @@
 
 Curated Lean core for Structural Persistence Theory.
 
-Structural Persistence Theory is a Lean-formalized meta-theory for structural
-persistence and collapse claims.  Its current core is:
+Structural Persistence Theory is not a unification theory and does not provide
+a universal persistence score.  It is a Lean-formalized meta-theory for making
+structural persistence and collapse claims explicit in common coordinates,
+boundary readouts, and scoped same-calculation invariants.
+
+The current core is:
 
 1. **Coordinates**: `F/K/V_K/L/B/M` make explicit what is maintained, what
    carries it, what burden accumulates, and what support is qualified.
 2. **Boundary**: the readout says where persistence, collapse, stopping, or
    recovery is licensed.
-3. **Scoped invariance**: under the visible/current-view same-calculation
+3. **Forced loss coordinate after fixing the problem**: once the maintained
+   condition `G`, viable region `V_G`, measure `m`, and before/after comparison
+   are fixed, any continuous additive ratio-loss is `-k log r`, unique up to
+   unit scale.  With nat units, `k = 1`.
+4. **Scoped invariance**: under the visible/current-view same-calculation
    scope, G1 returns competing observation-only calculations to the same
    skeleton surface.
+
+The theory does **not** infer the right `G`, `V_G`, `m`, `M`, or empirical
+proxy from a domain automatically.  Domain measurements, proxy validity, and
+prediction remain separate obligations.
+
+In short:
+
+```text
+No universal persistence score.
+After G, V_G, m, and the comparison are fixed, the loss number is forced.
+Under same-calculation scope, the skeleton/boundary surface is scoped invariant.
+```
 
 ## What Is Kept
 

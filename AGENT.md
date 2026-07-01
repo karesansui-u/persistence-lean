@@ -6,6 +6,9 @@ Keep the public claim narrow:
 
 - The project is a meta-theory of coordinates, boundary, and scoped invariance
   for structural persistence/collapse claims.
+- It is not a unification theory and does not provide a universal persistence
+  score.  Numeric loss is forced only after `G`, `V_G`, `m`, and the comparison
+  are fixed.
 - The load-bearing Lean core is:
   1. `LogUniqueness` / `RepresentationTheorem`;
   2. `StructuralPersistenceG1SemanticSpine`;
