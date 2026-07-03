@@ -59,6 +59,15 @@ public spine.
 Names are not decisive.  Some `*Bridge` files are proof-bearing and kept here;
 dictionary-only bridges remain outside the curated repository.
 
+The example module `Persistence/Examples/SmallWitness.lean` is a kernel-level
+nonvacuity check for the G1 semantic interface.  It reuses the finite
+three-state visible process but separates the maintained-target realization
+from the boundary readout, proving `viable ⊊ maintains ⊊ all states` by
+explicit witnesses and routing the process through
+`currentViewTraceLogExtensional_of_oneStepExtensional`.  This shows that the
+boundary/readout and maintained-target realization need not collapse to the
+same predicate; it is not a real-domain validation or empirical proxy claim.
+
 In particular, approximate/proxy stability is a theorem-side conditional guard:
 explicit bounded-horizon score, error-drift, margin, and horizon certificates
 can license approximate skeleton-surface stability.  It does not discover or
