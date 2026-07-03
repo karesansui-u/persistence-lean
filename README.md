@@ -2,10 +2,15 @@
 
 Curated Lean core for Structural Persistence Theory.
 
-Structural Persistence Theory is not a unification theory and does not provide
-a universal persistence score.  It is a Lean-formalized meta-theory for making
-structural persistence and collapse claims explicit in common coordinates,
-boundary readouts, and scoped same-calculation invariants.
+Structural Persistence Theory is not a universal prediction theory, not a
+unification theory, and not a universal persistence score.  It is a
+Lean-formalized claim-discipline meta-theory for putting structural persistence
+and collapse claims onto an explicit interface: maintained target, viable
+region, measure, boundary readout, burden/support, and proxy obligations.
+
+The Lean core proves what is forced after those choices are fixed: log-ratio
+loss uniqueness, scoped same-calculation invariance, finite anchors, and
+selected conditional boundary/proxy laws in `Persistence.CorePlus`.
 
 The current core is:
 
@@ -40,6 +45,29 @@ stability lives in `Persistence.CorePlus` under explicit bounded-horizon score,
 error-drift, margin, and horizon certificates; real-domain proxy validity
 remains a separate obligation.
 
+Measurement and proxy discipline are part of the interface, not automatic
+discoveries.  A domain adapter must state the native measure `m`, the
+observable proxy if `m` is not directly observed, the boundary readout, and the
+error/margin certificate that licenses the proxy near that boundary.  A proxy is
+not evidence by name; it is only licensed when the domain-side certificate says
+what it measures and how far it may deviate.
+
+Structural Persistence Theory has two intended values.  First, within a native
+domain, it can make prediction, diagnosis, and intervention claims more precise
+by forcing the maintained target, burden, support, measure, proxy, and collapse
+boundary to be stated explicitly.  Second, across domains, it provides a common
+persistence coordinate for reading individuals, organizations, municipalities,
+natural systems, institutions, and long-lived AI systems in comparable terms.
+This supports audits of burden transfer, dependency, cascading collapse,
+recovery support, and institutional design.  The first is a precision value;
+the second is a connection value.  They solve different problems.
+
+This does not replace native domain theories.  Queueing theory, control theory,
+epidemiology, reliability engineering, software analysis, and other native
+theories remain the sources of precise domain claims.  Predictive use, when
+available, must come from a domain adapter, native dynamics, and proxy
+certificates.
+
 The theory does **not** infer the right `G`, `V_G`, `m`, `M`, or empirical
 proxy from a domain automatically.  Domain measurements, proxy validity, and
 prediction remain separate obligations.
@@ -47,8 +75,10 @@ prediction remain separate obligations.
 In short:
 
 ```text
+No universal prediction theory.
 No universal persistence score.
-After G, V_G, m, and the comparison are fixed, the loss number is forced.
+After the maintained target, viable region, measure, and comparison are fixed,
+the loss coordinate is forced.
 Under same-calculation scope, the skeleton/boundary surface is scoped invariant.
 ```
 
