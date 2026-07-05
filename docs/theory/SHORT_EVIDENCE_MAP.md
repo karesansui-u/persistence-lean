@@ -79,10 +79,13 @@ or runs while the target predicate/value separates them, no decoder using only
 that projection can recover the lost distinction.  The module instantiates this
 for boundary-readout-only and current-view-only recovery of maintained-target
 realization in the hidden witness, and for total-scalar-trace-only recovery of
-burden/support component traces.  This is a kernel-level claim-surface guard:
-it shows where maintains-gap and component separation are load-bearing.  It is
-not a new information-theoretic data-processing theorem or a real-domain
-measurement claim.
+burden/support component traces.  It also proves a reduced/enriched interface
+form: after the maintained-target flag is dropped, boundary readout and current
+view cannot recover it, while the enriched interface that keeps the flag still
+separates the states.  This is a kernel-level claim-surface guard: it shows
+where maintains-gap and component separation are load-bearing.  It is not a new
+information-theoretic data-processing theorem, a claim that other frameworks
+cannot encode the distinction, or a real-domain measurement claim.
 
 The example module `Persistence/Examples/QueueGeoGeo1Drift.lean` contains a
 finite-buffer drift-sign adapter for the Foster-Lyapunov sign bridge.  It

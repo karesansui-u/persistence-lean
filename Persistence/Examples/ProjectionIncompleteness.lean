@@ -65,9 +65,64 @@ theorem no_projection_only_value_decoder
       _ = decode (pi right) := by rw [sameProjected]
       _ = value right := hdecode right)
 
+/--
+The enriched projection keeps both the reduced observation and the value that
+the reduced observation may have collapsed.
+-/
+def enrichedProjection
+    {State : Type u} {Obs : Type v} {Value : Type w}
+    (pi : State -> Obs) (value : State -> Value) :
+    State -> Obs × Value :=
+  fun state => (pi state, value state)
+
+/--
+Reduced-versus-enriched projection separation.
+
+This is the safe interface claim: it does not say another theory cannot encode
+the value.  It says that once a claim surface has reduced states through `pi`,
+any value distinction collapsed by `pi` is unavailable from the reduced
+interface alone, while the enriched interface `(pi, value)` still separates it.
+-/
+theorem reduced_loses_while_enriched_separates
+    {State : Type u} {Obs : Type v} {Value : Type w}
+    (pi : State -> Obs) (value : State -> Value)
+    (collision : ∃ left right,
+      pi left = pi right ∧ value left ≠ value right) :
+    (∃ left right,
+      pi left = pi right ∧
+        enrichedProjection pi value left ≠
+          enrichedProjection pi value right) ∧
+      ¬ ∃ decode : Obs -> Value,
+        ∀ state, decode (pi state) = value state := by
+  constructor
+  · rcases collision with ⟨left, right, sameProjected, valueDifferent⟩
+    exact
+      ⟨left, right, sameProjected, by
+        intro enrichedSame
+        exact valueDifferent (Prod.mk.inj enrichedSame).2⟩
+  · exact no_projection_only_value_decoder pi value collision
+
 namespace HiddenSemanticWitness
 
 open Persistence.StructuralPersistence.Examples.SmallWitness.HiddenSemanticWitness
+
+/--
+Boolean maintained-target realization flag for the finite hidden witness.
+
+This is only the finite-witness value form of the `maintains` predicate; the
+next theorem records the equivalence explicitly.
+-/
+def maintainedFlag : HiddenState -> Bool
+  | .ready => true
+  | .hiddenMaintained => true
+  | .hiddenLost => false
+  | .failed => false
+
+/-- The Boolean flag agrees with the semantic `maintains` predicate. -/
+theorem maintainedFlag_eq_true_iff_maintains (state : HiddenState) :
+    maintainedFlag state = true ↔
+      calculation.maintains state calculation.maintainedTarget := by
+  cases state <;> simp [maintainedFlag, calculation, maintains]
 
 /--
 Boundary-readout-only predicates cannot recover maintained-target realization
@@ -130,6 +185,109 @@ theorem hidden_readout_only_incompleteness_summary :
           calculation.maintains state calculation.maintainedTarget) :=
   ⟨no_boundaryReadout_only_maintains_decoder,
     no_currentView_only_maintains_decoder⟩
+
+/--
+Dropping the maintained-target realization flag from the boundary readout loses
+information that the enriched interface preserves.
+
+The reduced interface is `boundaryReadout`; the enriched interface is
+`(boundaryReadout, maintainedFlag)`.
+-/
+theorem boundaryReadout_reduced_loses_enriched_maintainedFlag :
+    (∃ left right : HiddenState,
+      calculation.boundaryReadout left =
+        calculation.boundaryReadout right ∧
+      enrichedProjection
+          (fun state : HiddenState => calculation.boundaryReadout state)
+          maintainedFlag left ≠
+        enrichedProjection
+          (fun state : HiddenState => calculation.boundaryReadout state)
+          maintainedFlag right) ∧
+    ¬ ∃ decode : BoundaryStatus -> Bool,
+      ∀ state : HiddenState,
+        decode (calculation.boundaryReadout state) =
+          maintainedFlag state := by
+  exact
+    reduced_loses_while_enriched_separates
+      (pi := fun state : HiddenState => calculation.boundaryReadout state)
+      (value := maintainedFlag)
+      (by
+        exact
+          ⟨HiddenState.hiddenMaintained, HiddenState.hiddenLost,
+            by simp [calculation, process, readout],
+            by simp [maintainedFlag]⟩)
+
+/--
+Dropping the maintained-target realization flag from the full current view also
+loses information that the enriched interface preserves.
+
+The reduced interface is `currentView`; the enriched interface is
+`(currentView, maintainedFlag)`.
+-/
+theorem currentView_reduced_loses_enriched_maintainedFlag :
+    (∃ left right : HiddenState,
+      process.currentView left = process.currentView right ∧
+      enrichedProjection
+          (fun state : HiddenState => process.currentView state)
+          maintainedFlag left ≠
+        enrichedProjection
+          (fun state : HiddenState => process.currentView state)
+          maintainedFlag right) ∧
+    ¬ ∃ decode : HiddenObservation × BoundaryStatus -> Bool,
+      ∀ state : HiddenState,
+        decode (process.currentView state) = maintainedFlag state := by
+  exact
+    reduced_loses_while_enriched_separates
+      (pi := fun state : HiddenState => process.currentView state)
+      (value := maintainedFlag)
+      (by
+        exact
+          ⟨HiddenState.hiddenMaintained, HiddenState.hiddenLost,
+            by
+              simp [process, observe, readout,
+                ObservationalPersistenceProcess.currentView],
+            by simp [maintainedFlag]⟩)
+
+/--
+Combined reduced/enriched interface summary for the hidden witness.
+
+The hidden witness does not show that other frameworks cannot encode the
+distinction.  It shows that a claim surface which drops maintained-target
+realization from its interface cannot recover that distinction from the
+reduced readout alone, while the enriched interface keeps it.
+-/
+theorem reduced_enriched_interface_summary :
+    (∀ state : HiddenState,
+      maintainedFlag state = true ↔
+        calculation.maintains state calculation.maintainedTarget) ∧
+    ((∃ left right : HiddenState,
+      calculation.boundaryReadout left =
+        calculation.boundaryReadout right ∧
+      enrichedProjection
+          (fun state : HiddenState => calculation.boundaryReadout state)
+          maintainedFlag left ≠
+        enrichedProjection
+          (fun state : HiddenState => calculation.boundaryReadout state)
+          maintainedFlag right) ∧
+      ¬ ∃ decode : BoundaryStatus -> Bool,
+        ∀ state : HiddenState,
+          decode (calculation.boundaryReadout state) =
+            maintainedFlag state) ∧
+    ((∃ left right : HiddenState,
+      process.currentView left = process.currentView right ∧
+      enrichedProjection
+          (fun state : HiddenState => process.currentView state)
+          maintainedFlag left ≠
+        enrichedProjection
+          (fun state : HiddenState => process.currentView state)
+          maintainedFlag right) ∧
+      ¬ ∃ decode : HiddenObservation × BoundaryStatus -> Bool,
+        ∀ state : HiddenState,
+          decode (process.currentView state) = maintainedFlag state) := by
+  exact
+    ⟨maintainedFlag_eq_true_iff_maintains,
+      boundaryReadout_reduced_loses_enriched_maintainedFlag,
+      currentView_reduced_loses_enriched_maintainedFlag⟩
 
 end HiddenSemanticWitness
 
