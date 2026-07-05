@@ -72,6 +72,15 @@ responses still satisfy one-step current-view extensionality and route into
 trace-log extensionality.  These are kernel-level nonvacuity checks, not
 real-domain validation or empirical proxy claims.
 
+The example module `Persistence/Examples/QueueGeoGeo1Drift.lean` contains a
+finite-buffer drift-sign adapter for the Foster-Lyapunov sign bridge.  It
+models a three-state Geo/Geo/1 queue with blocked arrivals at capacity and
+proves that the interior expected net change is `p - q`; after the safe set
+`{empty}` is fixed, the negative-drift readout agrees with `p < q`.  A
+contrast theorem shows that widening the safe set changes the drift obligation.
+This is a finite-buffer drift-sign example, not an infinite-buffer stability,
+positive-recurrence, or full queueing-theory theorem.
+
 In particular, approximate/proxy stability is a theorem-side conditional guard:
 explicit bounded-horizon score, error-drift, margin, and horizon certificates
 can license approximate skeleton-surface stability.  It does not discover or
