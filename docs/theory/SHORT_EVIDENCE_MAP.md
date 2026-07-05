@@ -81,6 +81,17 @@ contrast theorem shows that widening the safe set changes the drift obligation.
 This is a finite-buffer drift-sign example, not an infinite-buffer stability,
 positive-recurrence, or full queueing-theory theorem.
 
+The example module `Persistence/Examples/SeriesReliabilityLogLoss.lean`
+contains a finite series-reliability log-loss adapter.  Taking the series law
+`R = ∏ r_i` as a domain-side composition input, it proves that component
+survivals in `(0, 1]` remain in the Core ratio domain, that series burden is
+additive in the shared `-log r` coordinate, and that every admissible scalar
+continuous log-additive Core loss reads the same burden sum up to nonnegative
+scale.  It also gives a threshold/burden-budget readout and a series-only red
+test for single-component burden overshoot.  This is not a derivation of the
+series law, independence assumptions, parallel redundancy, repair dynamics, or
+general reliability theory.
+
 In particular, approximate/proxy stability is a theorem-side conditional guard:
 explicit bounded-horizon score, error-drift, margin, and horizon certificates
 can license approximate skeleton-surface stability.  It does not discover or
