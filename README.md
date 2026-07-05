@@ -153,9 +153,14 @@ approximation/proxy guards.
 
 ## Build
 
+The minimal root spine is intentionally separate from the extended theorem
+surface and worked examples.  For a full local check, run all three targets
+explicitly:
+
 ```bash
-lake build Persistence
-lake build Persistence.CorePlus
+lake build Persistence          # minimal root spine
+lake build Persistence.CorePlus # selected extended core
+lake build Persistence.Examples # worked examples
 ```
 
 ## Reading
