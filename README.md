@@ -169,5 +169,6 @@ lake build Persistence.Examples # worked examples
 - `docs/theory/SHORT_EVIDENCE_MAP.md`
 - `docs/theory/THEORY_CORE_CLOSED_SCOPE.md`
 - `docs/theory/CLAIM_DEPENDENCY_MAP.md`
+- `docs/theory/IMPACT_DIFFERENCE_NETWORK.md`
 - `docs/theory/G1_SCOPED_SEMANTIC_SPINE.md`
 - `docs/theory/CORE_PLUS_MAP.md`
