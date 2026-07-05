@@ -72,6 +72,18 @@ responses still satisfy one-step current-view extensionality and route into
 trace-log extensionality.  These are kernel-level nonvacuity checks, not
 real-domain validation or empirical proxy claims.
 
+The example module `Persistence/Examples/ProjectionIncompleteness.lean`
+abstracts the common projection no-go behind the hidden semantic witness and
+the scalar component-collapse red test.  If a projection identifies two states
+or runs while the target predicate/value separates them, no decoder using only
+that projection can recover the lost distinction.  The module instantiates this
+for boundary-readout-only and current-view-only recovery of maintained-target
+realization in the hidden witness, and for total-scalar-trace-only recovery of
+burden/support component traces.  This is a kernel-level claim-surface guard:
+it shows where maintains-gap and component separation are load-bearing.  It is
+not a new information-theoretic data-processing theorem or a real-domain
+measurement claim.
+
 The example module `Persistence/Examples/QueueGeoGeo1Drift.lean` contains a
 finite-buffer drift-sign adapter for the Foster-Lyapunov sign bridge.  It
 models a three-state Geo/Geo/1 queue with blocked arrivals at capacity and
