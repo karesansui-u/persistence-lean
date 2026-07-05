@@ -101,9 +101,12 @@ state inhabiting `maintains ∖ viable`.  Unlike the projection no-go, this does
 not hold for an arbitrary predicate pair: it uses the ordered viable/maintains
 relationship the calculation structure imposes, so stripping the persistence
 framing leaves nothing to state.  It is applied to the hidden witness
-(`hiddenMaintained`).  This is a kernel-level interface theorem showing the
-viable-inside-maintains ordering is load-bearing; it is not a new mathematical
-result or a real-domain claim.
+(`hiddenMaintained`).  The module also tests, as an example-side condition
+rather than a core field, `collapsed -> not maintains`; under that local
+hypothesis, a maintained-but-not-viable state is forced to have the `stopped`
+readout rather than the `collapsed` readout.  This is a kernel-level interface
+theorem showing the viable-inside-maintains ordering is load-bearing; it is not
+a new mathematical result or a real-domain claim.
 
 The example module `Persistence/Examples/QueueGeoGeo1Drift.lean` contains a
 finite-buffer drift-sign adapter for the Foster-Lyapunov sign bridge.  It

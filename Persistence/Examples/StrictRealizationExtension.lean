@@ -32,6 +32,12 @@ not a real-domain measurement claim.  Its point is only that the
 viable-inside-maintains ordering does deductive work: the interface
 distinction between "viable" and "realizing the maintained target" is
 load-bearing, not decorative.
+
+The final local hypothesis in this file, `CollapsedExcludesMaintainsHypothesis`,
+is deliberately not added to the core calculation structure.  It is tested here
+as an example-side condition: if collapsed readouts exclude maintained-target
+realization, then a maintained-outside-viable state is forced into the stopped
+readout rather than the collapsed readout.
 -/
 
 namespace Persistence.StructuralPersistence
@@ -149,6 +155,78 @@ theorem stateViableRegion_not_all_realizers_of_strictExtension
     ⟨s, hMaintains, hNotViable⟩
   exact ⟨s, hMaintains, fun hmem => hNotViable hmem⟩
 
+/--
+Local hypothesis: a collapsed boundary readout excludes realization of the
+maintained target.
+
+This is intentionally a hypothesis in the example layer, not a field added to
+`AlternativePersistenceCalculation`.  It lets this file test the next semantic
+asymmetry without changing the core interface.
+-/
+structure CollapsedExcludesMaintainsHypothesis
+    (A : AlternativePersistenceCalculation State Target) : Prop where
+  collapsed_excludes :
+    ∀ s, A.boundaryReadout s = BoundaryStatus.collapsed ->
+      ¬ A.maintains s A.maintainedTarget
+
+/--
+Under collapsed-excludes-maintains, a maintained-outside-viable state cannot be
+collapsed.
+-/
+theorem maintainedOutsideViable_not_collapsed
+    (A : AlternativePersistenceCalculation State Target)
+    (hCollapsed : CollapsedExcludesMaintainsHypothesis A)
+    {s : State} (h : MaintainedOutsideViable A s) :
+    A.boundaryReadout s ≠ BoundaryStatus.collapsed := by
+  intro hReadout
+  exact (hCollapsed.collapsed_excludes s hReadout) h.1
+
+/--
+Under collapsed-excludes-maintains, a maintained-outside-viable state has the
+stopped readout.
+
+This is the local three-way boundary consequence:
+
+```text
+maintains s  and  not viable s  and  collapsed excludes maintains
+  ==> boundaryReadout s = stopped.
+```
+
+It turns the strict-extension witness into a middle-status witness, while still
+keeping the collapsed/maintains asymmetry outside the core structure.
+-/
+theorem maintainedOutsideViable_readout_stopped
+    (A : AlternativePersistenceCalculation State Target)
+    (hCollapsed : CollapsedExcludesMaintainsHypothesis A)
+    {s : State} (h : MaintainedOutsideViable A s) :
+    A.boundaryReadout s = BoundaryStatus.stopped := by
+  cases hReadout : A.boundaryReadout s with
+  | viable =>
+      exact False.elim (h.2 hReadout)
+  | stopped =>
+      rfl
+  | collapsed =>
+      exact False.elim
+        ((maintainedOutsideViable_not_collapsed A hCollapsed h) hReadout)
+
+/--
+Strict realization extension plus collapsed-excludes-maintains yields a stopped
+but still maintaining state.
+-/
+theorem exists_stopped_maintained_of_strictExtension
+    (A : AlternativePersistenceCalculation State Target)
+    (hStrict : StrictExtensionHypothesis A)
+    (hCollapsed : CollapsedExcludesMaintainsHypothesis A) :
+    ∃ s,
+      A.boundaryReadout s = BoundaryStatus.stopped ∧
+        A.maintains s A.maintainedTarget := by
+  rcases exists_maintained_not_viable_of_strictExtension A hStrict with
+    ⟨s, hOutside⟩
+  exact
+    ⟨s,
+      maintainedOutsideViable_readout_stopped A hCollapsed hOutside,
+      hOutside.1⟩
+
 namespace HiddenWitness
 
 open Persistence.StructuralPersistence.Examples.SmallWitness.HiddenSemanticWitness
@@ -169,6 +247,19 @@ theorem strictRealizationExtension :
       by simp [calculation, process, readout]⟩
 
 /--
+In the hidden witness, collapsed readout excludes maintained-target
+realization.
+-/
+theorem collapsedExcludesMaintains :
+    CollapsedExcludesMaintainsHypothesis calculation where
+  collapsed_excludes := by
+    intro state hCollapsed
+    cases state <;>
+      simp [calculation, process, readout,
+        Persistence.StructuralPersistence.Examples.SmallWitness.HiddenSemanticWitness.maintains]
+        at hCollapsed ⊢
+
+/--
 Applying the core interface theorem to the hidden witness: a maintained-outside-
 viable state exists there.
 
@@ -183,22 +274,42 @@ theorem exists_maintainedOutsideViable :
     strictRealizationExtension
 
 /--
+The hidden witness has a stopped but still maintaining state.
+
+This is `hiddenMaintained`, obtained through the strict-extension theorem plus
+the local collapsed-excludes-maintains hypothesis.
+-/
+theorem exists_stoppedMaintained :
+    ∃ s,
+      calculation.boundaryReadout s = BoundaryStatus.stopped ∧
+        calculation.maintains s calculation.maintainedTarget :=
+  exists_stopped_maintained_of_strictExtension calculation
+    strictRealizationExtension collapsedExcludesMaintains
+
+/--
 Combined summary: the hidden witness strictly extends its viable region, and a
 maintained-outside-viable state therefore exists, separating the viable and
-realization regions.
+realization regions.  With the local collapsed-excludes-maintains hypothesis,
+that state is forced into the stopped readout rather than collapsed.
 -/
 theorem strict_realization_extension_summary :
     StrictExtensionHypothesis calculation ∧
+      CollapsedExcludesMaintainsHypothesis calculation ∧
       calculation.stateViableRegion ⊂ realizationRegion calculation ∧
       (∃ s, MaintainedOutsideViable calculation s) ∧
       (∃ s, calculation.maintains s calculation.maintainedTarget ∧
-        s ∉ calculation.stateViableRegion) :=
+        s ∉ calculation.stateViableRegion) ∧
+      (∃ s,
+        calculation.boundaryReadout s = BoundaryStatus.stopped ∧
+          calculation.maintains s calculation.maintainedTarget) :=
   ⟨strictRealizationExtension,
+    collapsedExcludesMaintains,
     stateViableRegion_strictly_inside_realizationRegion calculation
       strictRealizationExtension,
     exists_maintainedOutsideViable,
     stateViableRegion_not_all_realizers_of_strictExtension calculation
-      strictRealizationExtension⟩
+      strictRealizationExtension,
+    exists_stoppedMaintained⟩
 
 end HiddenWitness
 
