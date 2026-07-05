@@ -37,6 +37,25 @@ readout.
 | A finite first-moment exposure bound controls nonemptiness probability. | `Persistence.FiniteCSPFirstMomentCollapseBound.nonemptyProbability_le_exp_neg_margin` | Markov/first-moment inequality plus `A * exp (-L) <= exp (-lambda)` | The first-moment bound is supplied by the exposure model.  The theorem does not prove a sharp CSP threshold or solver dynamics. |
 | A finite Bernoulli path lower-tail event has a Chernoff/KL upper bound. | `Persistence.BernoulliCSPPathChernoff.exactCountFailureBound_le_chernoffFailureBound_of_interior` and `cumulativeLowerTailMeasure_le_chernoffFailureBound_of_interior` | Exact path-space MGF product from `BernoulliCSPPathMeasure` plus optimized Chernoff algebra from `BernoulliCSPTemplate` | This is a finite Bernoulli path bound, not a full LDP, effective-bandwidth theorem, or Shannon theorem. |
 
+## Coordinate-Split Ladder
+
+This ladder is not part of the minimal root spine.  It records why the
+maintained-target, boundary-readout, viable-region, and realization-region
+coordinates are not just vocabulary in the example layer.
+
+| Step | Lean anchor | Immediate support | Safe reading |
+| --- | --- | --- | --- |
+| Hidden realization gap | `same_readout_different_maintains` and `same_currentView_different_maintains` in `Persistence/Examples/SmallWitness.lean` | The four-state hidden witness has two hidden states with the same boundary readout and current view but different maintained-target realization. | This is a kernel witness, not a real-domain measurement claim. |
+| Reduced readout loses the gap | `no_boundaryReadout_only_maintains_decoder`, `no_currentView_only_maintains_decoder`, and `hidden_readout_only_incompleteness_summary` in `Persistence/Examples/ProjectionIncompleteness.lean` | `no_projection_only_predicate_decoder`: if a projection identifies two states while a predicate separates them, no projection-only predicate decoder recovers the predicate. | This is projection incompleteness, not a new information-theoretic data-processing theorem. |
+| Enriched interface preserves the gap | `reduced_loses_while_enriched_separates`, `boundaryReadout_reduced_loses_enriched_maintainedFlag`, and `currentView_reduced_loses_enriched_maintainedFlag` in `Persistence/Examples/ProjectionIncompleteness.lean` | The reduced interface drops the maintained-target flag; the enriched interface keeps `(readout, maintainedFlag)` or `(currentView, maintainedFlag)`. | The claim is not that other frameworks cannot encode the distinction.  It is that the reduced claim surface cannot recover a distinction it has dropped. |
+| Viable region is strictly inside realization region | `stateViableRegion_strictly_inside_realizationRegion` in `Persistence/Examples/StrictRealizationExtension.lean` | `stateViableRegion_subset_realizationRegion` uses `stateViableRegion_sound`, hence the `viable_implies_maintained` field, and the strict witness supplies non-reverse inclusion. | This is the first example-layer theorem here where the viable-inside-maintains ordering drives the proof rather than a general projection lemma. |
+| Stopped but still maintaining | `maintainedOutsideViable_readout_stopped` and `exists_stopped_maintained_of_strictExtension` in `Persistence/Examples/StrictRealizationExtension.lean` | Boundary status is split into `viable`, `stopped`, and `collapsed`; `not viable` rules out `viable`, and the local hypothesis `collapsed -> not maintains` rules out `collapsed`. | This uses an example-side hypothesis, not a core field.  It shows a middle boundary readout under that local condition, not a general recovery theorem. |
+
+The ladder supports the modest claim that the coordinate split can be
+load-bearing in small Lean-checked consequences.  It does not prove empirical
+prediction, automatic adapter discovery, or that viability theory or control
+theory cannot encode similar distinctions after state-space enrichment.
+
 ## G1 Proof Route
 
 The current G1 route is best read as three layers: observation-only input,

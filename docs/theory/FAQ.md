@@ -44,6 +44,33 @@ practical value depends on whether concrete domains can supply natural choices
 of maintained target, structure, viable region, burden, support, boundary
 readout, and proxy certificates.
 
+## Is the coordinate split just vocabulary?
+
+No, but the claim should stay modest.  The repository now contains a small
+Examples ladder showing that the coordinate split is not merely decorative:
+
+1. `SmallWitness` constructs a hidden semantic witness where two states have
+   the same boundary readout and current view but different maintained-target
+   realization.
+2. `ProjectionIncompleteness` proves that if a claim surface uses only the
+   reduced readout, that maintained-target distinction cannot be recovered from
+   the reduced interface alone.
+3. The same module proves the reduced/enriched form: dropping the
+   maintained-target flag loses the distinction, while the enriched interface
+   that keeps the flag still separates the states.
+4. `StrictRealizationExtension` uses the structural field
+   `viable_implies_maintained` to prove that, under strict extension, the
+   viable region is a proper subregion of the realization region.
+5. With the local example-side hypothesis `collapsed -> not maintains`, a
+   maintained-but-not-viable state is forced to have the `stopped` readout
+   rather than the `collapsed` readout.
+
+This does not prove a new deep theorem, and it does not prove that other
+frameworks cannot encode the same distinctions.  It proves a narrower point:
+if these coordinates are collapsed at the claim interface, specific
+distinctions are lost; if the viable/maintains ordering and boundary statuses
+are kept, they can drive small Lean-checked consequences.
+
 ## Is the log-ratio theorem new mathematics?
 
 No.  The log-ratio theorem is a Lean formalization of a classical
