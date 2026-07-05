@@ -92,6 +92,17 @@ test for single-component burden overshoot.  This is not a derivation of the
 series law, independence assumptions, parallel redundancy, repair dynamics, or
 general reliability theory.
 
+The example module `Persistence/Examples/DependencyChainLedger.lean` contains
+a finite series two-coordinate accounting example.  It keeps burden and freely
+declared support as separate ledger coordinates, proves finite disjoint-union
+bookkeeping for the two totals, rewrites survival-only viability as a burden
+budget, and shows that under unconstrained support declaration a fixed positive
+support-discounted net score can assign the same scalar value to two
+single-stage systems with opposite viability.  This is a toy accounting
+counterexample about possible information loss under free support netting; it
+is not a path/DAG, shared-node, correlated-failure, real support-measurement,
+or general network-audit theorem.
+
 In particular, approximate/proxy stability is a theorem-side conditional guard:
 explicit bounded-horizon score, error-drift, margin, and horizon certificates
 can license approximate skeleton-surface stability.  It does not discover or
