@@ -87,6 +87,24 @@ where maintains-gap and component separation are load-bearing.  It is not a new
 information-theoretic data-processing theorem, a claim that other frameworks
 cannot encode the distinction, or a real-domain measurement claim.
 
+The example module `Persistence/Examples/StrictRealizationExtension.lean` is
+the first theorem here whose deductive weight comes from the persistence
+interface condition itself rather than a general projection lemma.  The
+`viable_implies_maintained` field of `AlternativePersistenceCalculation` fixes
+the containment `viable region ⊆ realization region`.  The theorem
+`stateViableRegion_strictly_inside_realizationRegion` proves that if this
+containment is strict, then the viable region is a proper subregion of the
+realization region; the companion
+`exists_maintained_not_viable_of_strictExtension` extracts a state realizing
+the maintained target while not being viable, a "stopped but still realizing"
+state inhabiting `maintains ∖ viable`.  Unlike the projection no-go, this does
+not hold for an arbitrary predicate pair: it uses the ordered viable/maintains
+relationship the calculation structure imposes, so stripping the persistence
+framing leaves nothing to state.  It is applied to the hidden witness
+(`hiddenMaintained`).  This is a kernel-level interface theorem showing the
+viable-inside-maintains ordering is load-bearing; it is not a new mathematical
+result or a real-domain claim.
+
 The example module `Persistence/Examples/QueueGeoGeo1Drift.lean` contains a
 finite-buffer drift-sign adapter for the Foster-Lyapunov sign bridge.  It
 models a three-state Geo/Geo/1 queue with blocked arrivals at capacity and
